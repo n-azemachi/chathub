@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ChatApp</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +8,12 @@
   </head>
 
   <body>
+    <nav class="navbar nabvar-expand-lg navbar-dark bg-primary">
+      <div class="navbar-brand">
+      <%= link_to "ChatApp", root_path %>
+      </div>
+    </nav>
+    
     <%= yield %>
   </body>
 </html>
