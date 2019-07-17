@@ -2,18 +2,26 @@
 <html>
   <head>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar nabvar-expand-lg navbar-dark bg-primary">
-      <div class="navbar-brand">
-      <%= link_to "ChatApp", root_path %>
+    <header>
+      <div class="container">
+        <div class="title"><%= link_to "ChatHub", root_path %></div>
+          <% if user_signed_in? %>
+            <ul class="header-menus">
+            <li>
+             <%= link_to "ログアウト", destroy_user_session_path, { method: :delete } %>
+            </li>
+            <li>
+             <%= current_user.email %>
+            </li>
+            </ul>
+          <% end %>
       </div>
-    </nav>
-    
+    </header>
     <%= yield %>
   </body>
 </html>
